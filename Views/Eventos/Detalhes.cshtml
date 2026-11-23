@@ -1,0 +1,25 @@
+@model Exercicios_ASP_NET_CoreMVC.Models.Evento   
+@{
+    ViewData["Title"] = "Detalhes do evento";
+}
+
+<h1>@Model.Nome</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Descricao)</dt>
+    <dd class="col-sm-9">@Model.Descricao</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Local)</dt>
+    <dd class="col-sm-9">@Model.Local</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.DataEvento)</dt>
+    <dd class="col-sm-9">@Model.DataEvento.ToString("dd/MM/yyyy")</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.QuantidadeVagas)</dt>
+    <dd class="col-sm-9">@Model.QuantidadeVagas</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.ValorIngresso)</dt>
+    <dd class="col-sm-9">@Model.ValorIngresso.ToString("C")</dd>
+</dl>
+
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

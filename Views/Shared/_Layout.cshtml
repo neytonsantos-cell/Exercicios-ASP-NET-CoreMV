@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Exercicios_ASP_NET_CoreMVC</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Exercicios_ASP_NET_CoreMVC.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <nav>
+
+        <a asp-controller="Home" asp-action="Index">Início</a>
+        <a asp-controller="Eventos" asp-action="Index">Eventos</a>
+        <a asp-controller="Eventos" asp-action="Criar">Novo Evento</a>
+        <a asp-controller="Eventos" asp-action="Buscar">Buscar Evento</a>
+    </nav>
+    <hr /> <!-- Linha divisória -->
+    @RenderBody()
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

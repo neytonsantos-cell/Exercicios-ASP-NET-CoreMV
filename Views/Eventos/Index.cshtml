@@ -1,0 +1,30 @@
+@model List<Evento>
+@{
+    ViewData["Title"] = "Listagem de Eventos";
+}
+
+<h1>Listagem de Eventos</h1>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Local</th>
+        <th>Data do Evento</th>
+        <th>Quantidade de Vagas</th>
+        <th>Valor do Ingresso</th>
+    </tr>
+    @foreach (Evento e in Model)
+    {
+        <tr>
+            <td>@e.Id</td>
+            <td>@e.Nome</td>
+            <td>@e.Descricao</td>
+            <td>@e.Local</td>
+            <td>@e.DataEvento.ToString("dd/MM/yyyy")</td>
+            <td>@e.QuantidadeVagas</td>
+            <td>@e.ValorIngresso.ToString("C")</td>
+        </tr>
+    }
+</table>
