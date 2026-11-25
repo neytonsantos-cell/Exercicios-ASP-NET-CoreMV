@@ -1,0 +1,65 @@
+@model Exercicios_ASP_NET_CoreMVC.ViewModels.BuscaEventoViewModel
+
+@{
+    ViewData["Title"] = "Buscar Eventos";
+}
+
+<h2>Buscar Eventos</h2>
+
+<form asp-action="Buscar" method="post" class="card p-3 mb-4">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label asp-for="NomeBusca" class="form-label"></label>
+            <input asp-for="NomeBusca" class="form-control" placeholder="Ex: Workshop" />
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="LocalBusca" class="form-label"></label>
+            <input asp-for="LocalBusca" class="form-control" placeholder="Ex: São Paulo" />
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label asp-for="DataInicial" class="form-label"></label>
+            <input asp-for="DataInicial" class="form-control" />
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
+        <a asp-action="Buscar" class="btn btn-outline-secondary">Limpar Filtros</a>
+        <a asp-action="Index" class="btn btn-link">Voltar à Lista</a>
+    </div>
+</form>
+
+@if (Model.Resultados != null && Model.Resultados.Any())
+{
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Local</th>
+                <th>Data</th>
+                <th>Quantidade de Vagas</th>
+                <th>Valor do Ingresso</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var evento in Model.Resultados)
+            {
+                <tr>
+                    <td>@evento.Nome</td>
+                    <td>@evento.Local</td>
+                    <td>@evento.DataEvento.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@evento.QuantidadeVagas</td>
+                    <td>@evento.ValorIngresso.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        Nenhum evento encontrado com os critérios informados.
+    </div>
+}

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Exercicios_ASP_NET_CoreMVC.Controllers
 {
-    [Route("[controller]")]
+    
     public class EventosController : Controller
     {
         private static List<Evento> _eventos = new()
